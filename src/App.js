@@ -1,25 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import SpeechToTextDemo from './components/SpeechToTextDemo';
+import { Container, Card } from "shards-react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/shards-dashboards.1.1.0.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container fluid className="main-content-container px-5 mt-5 mb-5">
+      <SpeechToTextDemo/>
+    </Container>
   );
 }
 
