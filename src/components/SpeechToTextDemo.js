@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import FileCopyIcon from '@material-ui/icons/FileCopy';
 import {
   Paper,
   Button,
@@ -10,19 +11,19 @@ import {
   TableHead,
   TableRow,
   Grid,
-  AppBar,
-  Toolbar,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
-  FormHelperText
+  FormHelperText, IconButton
 } from '@material-ui/core';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import SpeechToText from 'speech-to-text';
 
 import supportedLanguages from './supportedLanguages.js';
 import { Card, Container } from 'shards-react';
+import TextCell from './RowComponent.js';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 const styles = theme => ({
   root: {
@@ -187,9 +188,14 @@ class SpeechToTextDemo extends Component {
                     return (
                       <TableRow key={index}>
                         <TableCell component="th" scope="row">
-                          {str}
-                        </TableCell>
-                      </TableRow>
+                            {str}
+                            </TableCell>
+                        <CopyToClipboard text={str}>
+                            <IconButton color="primary" component="span">
+                                <FileCopyIcon/>
+                            </IconButton>
+                        </CopyToClipboard>
+                    </TableRow>
                     );
                   })}
                 </TableBody>
